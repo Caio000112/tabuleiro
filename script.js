@@ -1,6 +1,6 @@
 const tabuleiro = document.getElementById('tabuleiro');
 
-// Cria o tabuleiro com casas claras e escuras
+
 for (let i = 0; i < 64; i++) {
   const casa = document.createElement('div');
   casa.classList.add('casa');
@@ -12,7 +12,7 @@ for (let i = 0; i < 64; i++) {
   tabuleiro.appendChild(casa);
 }
 
-// Cria as peças
+
 const reiBranco = document.createElement('div');
 reiBranco.classList.add('peca');
 reiBranco.textContent = '♔';
@@ -23,7 +23,7 @@ torrePreta.classList.add('peca');
 torrePreta.textContent = '♜';
 torrePreta.dataset.tipo = 'torre';
 
-// Coloca as peças nas casas iniciais
+
 tabuleiro.children[60].appendChild(reiBranco); // h1
 tabuleiro.children[0].appendChild(torrePreta); // a8
 
@@ -64,7 +64,7 @@ document.addEventListener('mouseup', e => {
   casaOrigem = null;
 });
 
-// Função para validar o movimento
+
 function movimentoValido(peca, origem, destino) {
   const tipo = peca.dataset.tipo;
   const linhaOrigem = parseInt(origem.dataset.linha);
@@ -76,12 +76,12 @@ function movimentoValido(peca, origem, destino) {
   const deltaColuna = Math.abs(colunaDestino - colunaOrigem);
 
   if (tipo === 'rei') {
-    // Rei: 1 casa em qualquer direção
+   
     return deltaLinha <= 1 && deltaColuna <= 1;
   }
 
   if (tipo === 'torre') {
-    // Torre: movimento apenas na mesma linha ou coluna
+ 
     return (linhaDestino === linhaOrigem || colunaDestino === colunaOrigem);
   }
 
